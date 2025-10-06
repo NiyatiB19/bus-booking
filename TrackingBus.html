@@ -1,0 +1,90 @@
+ <html>
+<head>
+  <style>
+   body {
+  font-family: Arial;
+  padding: 10px;
+  background-color: rgb(142, 232, 232);
+        }
+          form {
+  background-color: rgb(142, 232, 232);
+  padding: 20px;
+  margin-top: 10px;
+   text-align: center;
+   color: black;
+}
+header, footer {
+  background-color:  #333;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+           justify-content:space-around;
+            align-items: center;
+} 
+hover-link { 
+    color: #007BFF; 
+    transition: color 0.3s, background-color 0.3s; 
+    padding: 10px 15px; 
+    border: 2px solid transparent; 
+} 
+ 
+.hover-link:hover { 
+    color: whitesmoke; 
+    background-color: red;
+    border: 2px solid black; 
+} 
+#message {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+ </style> 
+<script>
+  function ValidatePNR() {
+      var pnr = document.getElementById("pnr").value.trim();
+      var message = document.getElementById("message");
+
+      if (pnr === "") {
+        message.style.color = "red";
+        message.innerHTML = "Please enter your PNR number.";
+        return false;
+      }
+
+      if (pnr.length < 10 || isNaN(pnr)) {
+        message.style.color = "red";
+        message.innerHTML = "PNR number must be at least 10 digits.";
+        return false;
+      }
+
+      message.style.color = "green";
+      message.innerHTML = "Tracking your bus...";
+      return false; 
+    }
+</script>
+</head>
+<body>
+    <header>
+      <img src="Bus.jpg" width=""50" height="100">
+         <h2>Track Your Bus</h2>
+         <a href="Home.html" style="color:aliceblue;">HOME</a>
+    </header> 
+<form id="trackBus" onsubmit="return ValidatePNR()">
+  <br><br><br><br>
+  <label>Enter PNR Number:</label>
+  <input type="text" id="pnr" name="pnr">
+  <br><br><br><br>
+ 
+  <button type="submit" class="hover-link">Track</button>
+   <p id="message"></p>
+  <br><br><br><br><br><br><br><br><br><br><br><br>
+</form>  
+<footer>
+    <p>Contact Us:- &nbsp;&nbsp;&nbsp;  Email: support@busbooking.com<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Phone: +91-1234567890<br>
+      &copy; 2025 Bus Booking System. All rights reserved.<br>
+      </p>
+  </footer>
+</body>
+</html>
