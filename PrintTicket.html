@@ -1,0 +1,94 @@
+<html>
+<head>
+   <style>
+     body {
+  font-family: Arial;
+  padding: 10px;
+  background-color: rgb(142, 232, 232);
+        }
+          form {
+  background-color: rgb(142, 232, 232);
+  padding: 20px;
+  margin-top: 10px;
+   text-align: center;
+   color: black;
+}
+header, footer {
+  background-color:  #333;
+  color: white;
+  padding: 10px;
+  text-align: center;
+   display: flex;
+           justify-content:space-around;
+            align-items: center;
+} 
+hover-link { 
+    color: #007BFF; 
+    transition: color 0.3s, background-color 0.3s; 
+    padding: 10px 15px; 
+    border: 2px solid transparent; 
+} 
+ 
+.hover-link:hover { 
+    color: whitesmoke; 
+    background-color: red;
+    border: 2px solid black; 
+} 
+#message {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+ </style> 
+<script>
+    function validateTicketForm() {
+      var email = document.getElementById("email").value.trim();
+      var ticket = document.getElementById("ticket").value.trim();
+      var message = document.getElementById("message");
+
+      if (ticket === "") {
+        message.style.color = "red";
+        message.innerHTML = "Please enter your ticket number.";
+        return false;
+      }
+
+      if (ticket.length < 10 || isNaN(ticket)) {
+        message.style.color = "red";
+        message.innerHTML = "Ticket number must be at least 10 digits and numeric.";
+        return false;
+      }
+
+      message.style.color = "green";
+      message.innerHTML = "Ticket is printed.";
+      return false;
+    }
+  </script>  
+</head>
+<body>
+<header>
+  <img src="Bus.jpg" width=""50" height="100">
+    <h2>Print Your Ticket</h2>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="Home.html"  style="color:aliceblue;">HOME</a>
+</header>
+<form onsubmit="return validateTicketForm()">
+ <br><br><br><br>
+        <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required><br>
+<br>
+    <label>Ticket Number:</label>
+    <input type="text" id="ticket"><br>
+  <br>
+  <button type="submit" class="hover-link">Print</button>
+  <p id="message"></p>
+  <br><br><br><br><br><br><br><br><br>
+</form>
+<footer>
+    <p>Contact Us:- &nbsp;&nbsp;&nbsp;  Email: support@busbooking.com<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Phone: +91-1234567890<br>
+      &copy; 2025 Bus Booking System. All rights reserved.<br>
+      </p>
+  </footer>
+</body>
+</html>
