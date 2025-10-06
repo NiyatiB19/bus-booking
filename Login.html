@@ -1,127 +1,144 @@
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Login - Bus Ticket Booking</title>
-     <style>
-        body {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  padding: 10px;
-  background-color:rgb(142, 232, 232);
-}
-main{
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  padding: 10px;
-  background-color:rgb(142, 232, 232);
- color: black;
-   text-align: center;
-}
-header, footer {
-  background-color: #333;
-  color: white;
-  padding: 10px;
-  text-align: center;
-   display: flex;
-           justify-content:space-around;
-            align-items: center;
-}
- hover-link { 
-    color: #007BFF; 
-    transition: color 0.3s, background-color 0.3s; 
-    padding: 10px 15px; 
-    border: 2px solid transparent; 
-} 
- 
-.hover-link:hover { 
-    color: whitesmoke; 
-    background-color: red;
-    border: 2px solid black; 
-}
-#message {
-      font-weight: bold;
+  <title>Login - Bus Ticket Booking</title>
+  <style>
+    body {
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      padding: 10px;
+      background-color: rgb(142, 232, 232);
+      text-align: center;
+    }
+    header, footer {
+      background-color: #333;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+    main {
+      padding: 20px;
+      background-color: rgb(142, 232, 232);
+      color: black;
+    }
+    .hover-link {
+      color: #007BFF;
+      transition: color 0.3s, background-color 0.3s;
+      padding: 10px 15px;
+      border: 2px solid transparent;
+      text-decoration: none;
+    }
+    .hover-link:hover {
+      color: whitesmoke;
+      background-color: red;
+      border: 2px solid black;
+    }
+    .container {
+      background: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 30px;
+      width: 400px;
+      margin: 50px auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      text-align: left;
+    }
+    input[type="text"], input[type="email"], input[type="password"] {
+      width: 95%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #999;
+      border-radius: 5px;
+    }
+    button {
+      width: 100%;
+      background-color: red;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: darkred;
+    }
+    .message {
       margin-top: 10px;
-    } 
-    </style>
-   <script>
-      function validateForm() {
-          var name = document.getElementById("name").value.trim();
-      var email = document.getElementById("email").value.trim();
-      var password = document.getElementById("password").value.trim();
-      var message = document.getElementById("message");
-
- if (name  === "") {
-        message.style.color = "red";
-        message.innerHTML = "Name cannot be empty.";
-        return false;
-      }
-          
-      var emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-
-      if (!emailPattern.test(email)) {
-        message.style.color = "red";
-        message.innerHTML = "Please enter a valid email address.";
-        return false;
-      }
-
-      if (password === "") {
-        message.style.color = "red";
-        message.innerHTML = "Password cannot be empty.";
-        return false;
-      }
-
-      if (password.length < 6) {
-     message.style.color = "red";
-        message.innerHTML = "Password must be at least 6 characters long.";
-        return false;
-      }
-
-      message.style.color = "green";
-      message.innerHTML = "Login successful!";
-      return false; // Prevent actual form submission for now
-    }    
-    </script> 
+      text-align: center;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
-   <header>
-    <img src="Bus.jpg" width=""50" height="100">
-    <h1>Login to Bus Booking System</h1>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="Home.html"  style="color:aliceblue;">HOME</a>
+  <header>
+    <img src="Bus.jpg" width="80" height="80">
+    <h1>Login - Bus Booking System</h1>
+    <a href="Home.html" class="hover-link">HOME</a>
+  </header>
 
-   </header>
-    <br><br><br><br><br>
-    <main>
-   <form id="LoginForm" onsubmit="return validateForm()">
+  <main>
+    <div class="container">
+      <h2 style="text-align:center;">Login</h2>
+      <form onsubmit="return validateForm()">
+        <label>Username:</label>
+        <input type="text" id="username" required><br>
 
-       <label for="name">Username:</label>
-      <input type="name" id="name" name="name" >
-      <br><br>
+        <label>Email:</label>
+        <input type="email" id="email" required><br>
 
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" >
-      <br><br>
+        <label>Password:</label>
+        <input type="password" id="password" required><br>
 
-<br>
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password" >
-      <br><br>
-   
-      <br>
- <button class="btn forgot-btn">Forget Password?</button>
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <button type="submit" class="hover-link">Login</button>
-      <br>
-      <p id="message"></p>
-    </form>
-  <p>Don't have account? <a href="SignUp.html">SignUp</a></p>
-    
+        <button type="submit">Login</button>
+      </form>
+      <div id="message" class="message"></div>
+    </div>
   </main>
-  <br><br><br><br><br><br><br>
+
   <footer>
-    <p>Contact Us:- &nbsp;&nbsp;&nbsp;  Email: support@busbooking.com<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Phone: +91-1234567890<br>
+    <p>
+      Contact Us:- &nbsp;&nbsp;&nbsp; Email: support@busbooking.com<br>
+      Phone: +91-1234567890<br>
       &copy; 2025 Bus Booking System. All rights reserved.<br>
-      </p>
-  </footer>  
+    </p>
+  </footer>
+
+  <script>
+    function validateForm() {
+      const username = document.getElementById("username").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const message = document.getElementById("message");
+
+      // Simple example validation (you can replace with DB check)
+      if (username === "" || email === "" || password === "") {
+        message.style.color = "red";
+        message.innerHTML = "Please fill in all fields.";
+        return false;
+      }
+
+      // Example: predefined valid credentials (you can remove this later)
+      if (email === "user@example.com" && password === "12345") {
+        message.style.color = "green";
+        message.innerHTML = "Login successful! Redirecting...";
+
+        // Save to localStorage
+        localStorage.setItem("username", username);
+        localStorage.setItem("email", email);
+
+        // Redirect after 1 second
+        setTimeout(() => {
+          window.location.href = "Dashboard.html";
+        }, 1000);
+      } else {
+        message.style.color = "red";
+        message.innerHTML = "Invalid credentials!";
+      }
+
+      return false; // prevent form from refreshing
+    }
+  </script>
 </body>
 </html>
