@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
   <title>Dashboard - Bus Ticket Booking</title>
@@ -12,27 +13,9 @@
       background-color: #333;
       color: white;
       padding: 10px;
-      text-align: center;
       display: flex;
       justify-content: space-around;
       align-items: center;
-    }
-    main {
-      padding: 20px;
-      background-color: rgb(142, 232, 232);
-      color: black;
-    }
-    .hover-link {
-      color: #007BFF;
-      transition: color 0.3s, background-color 0.3s;
-      padding: 10px 15px;
-      border: 2px solid transparent;
-      text-decoration: none;
-    }
-    .hover-link:hover {
-      color: whitesmoke;
-      background-color: red;
-      border: 2px solid black;
     }
     .card {
       background: white;
@@ -42,6 +25,17 @@
       width: 400px;
       margin: 50px auto;
       box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    .hover-link {
+      color: #007BFF;
+      padding: 10px 15px;
+      text-decoration: none;
+      border: 2px solid transparent;
+    }
+    .hover-link:hover {
+      color: whitesmoke;
+      background-color: red;
+      border: 2px solid black;
     }
     .logout-btn {
       background: red;
@@ -76,21 +70,24 @@
   <footer>
     <p>
       Contact Us:- &nbsp;&nbsp;&nbsp; Email: support@busbooking.com<br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Phone: +91-1234567890<br>
+      Phone: +91-1234567890<br>
       &copy; 2025 Bus Booking System. All rights reserved.<br>
     </p>
   </footer>
 
   <script>
-    // Retrieve user details from localStorage
+    // Get user info from localStorage
     const username = localStorage.getItem("username");
     const email = localStorage.getItem("email");
 
-    document.getElementById("displayName").innerText = username ? username : "Guest";
-    document.getElementById("displayEmail").innerText = email ? email : "Not available";
+    if (!username || !email) {
+      alert("Please login first!");
+      window.location.href = "Login.html";
+    } else {
+      document.getElementById("displayName").textContent = username;
+      document.getElementById("displayEmail").textContent = email;
+    }
 
-    // Logout function
     function logout() {
       localStorage.clear();
       sessionStorage.clear();
