@@ -42,10 +42,17 @@ header, footer {
     </style>
    <script>
       function validateForm() {
+          var name = document.getElementById("name").value.trim();
       var email = document.getElementById("email").value.trim();
       var password = document.getElementById("password").value.trim();
       var message = document.getElementById("message");
 
+ if (name  === "") {
+        message.style.color = "red";
+        message.innerHTML = "Name cannot be empty.";
+        return false;
+      }
+          
       var emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
 
       if (!emailPattern.test(email)) {
@@ -83,6 +90,11 @@ header, footer {
     <br><br><br><br><br>
     <main>
    <form id="LoginForm" onsubmit="return validateForm()">
+
+       <label for="name">Username:</label>
+      <input type="name" id="name" name="name" >
+      <br><br>
+
       <label for="email">Email:</label>
       <input type="email" id="email" name="email" >
       <br><br>
