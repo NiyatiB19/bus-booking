@@ -1,0 +1,109 @@
+<html>
+<head>
+ <style>
+     body {
+  font-family: Arial;
+  padding: 10px;
+  background-color: rgb(142, 232, 232);
+        }
+          form {
+  background-color: rgb(142, 232, 232);
+  padding: 20px;
+  margin-top: 10px;
+   text-align: center;
+   color: black;
+}
+header, footer {
+  background-color:  #333;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+           justify-content:space-around;
+            align-items: center;
+} 
+hover-link { 
+    color: #007BFF; 
+    transition: color 0.3s, background-color 0.3s; 
+    padding: 10px 15px; 
+    border: 2px solid transparent; 
+} 
+ 
+.hover-link:hover { 
+    color: whitesmoke; 
+    background-color: red;
+    border: 2px solid black; 
+} 
+#message {
+       font-weight: bold;
+       margin-top: 10px;
+     }
+ </style>  
+ <script>
+   function validateRescheduleForm() {
+     var pnr = document.getElementById("pnr").value.trim();
+     var date = document.getElementById("newdate").value;
+     var message = document.getElementById("message");
+
+     if (pnr === "") {
+       message.style.color = "red";
+       message.innerHTML = "Please enter your PNR number.";
+       return false;
+     }
+
+     if (pnr.length < 10 || isNaN(pnr)) {
+       message.style.color = "red";
+       message.innerHTML = "PNR number must be at least 10 digits and numeric.";
+       return false;
+     }
+
+     if (date === "") {
+       message.style.color = "red";
+       message.innerHTML = "Please select a new date.";
+       return false;
+     }
+
+     var selectedDate = new Date(date);
+     var today = new Date();
+     today.setHours(0, 0, 0, 0); // remove time part
+
+     if (selectedDate < today) {
+       message.style.color = "red";
+       message.innerHTML = "Date cannot be in the past.";
+       return false;
+     }
+
+     message.style.color = "green";
+     message.innerHTML = "Ticket successfully rescheduled!";
+     return false; // prevent real submission (for testing)
+   }
+ </script> 
+</head>
+<body>
+<header>
+  <img src="Bus.jpg" width=""50" height="100">
+<h2>Reschedule Ticket</h2>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="Home.html"  style="color:aliceblue;">HOME</a>
+</header>
+<form onsubmit="return validateRescheduleForm()"><br><br><br>
+  <label>PNR Number:</label>
+  <input type="text" id="pnr"><br>
+  <br>
+  <label>New Date:</label>
+  <input type="date" id="newdate"><br>
+  <br>
+  <button type="submit" class="hover-link">Reschedule</button>
+  <p id="message"></p>
+  <br> <br> <br> <br> <br> <br><br><br><br>
+</form>
+<footer>
+ <p>Contact Us:- &nbsp;&nbsp;&nbsp;  Email: support@busbooking.com<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Phone: +91-1234567890<br>
+      &copy; 2025 Bus Booking System. All rights reserved.<br>
+      </p>
+</footer>
+</body>
+</html>
