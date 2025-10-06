@@ -1,11 +1,3 @@
-<?php
-session_start();
-if (!isset($_SESSION['username'])) {
-    header("Location: Login.php");
-    exit();
-}
-?>
-
 <html>
 <head>
   <style>
@@ -59,7 +51,7 @@ hover-link {
   <img src="Bus.jpg" width=""50" height="100">
 <h2>Bus Schedule</h2>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="Home.php"  style="color:aliceblue;">HOME</a>
+    <a href="Home.html"  style="color:aliceblue;">HOME</a>
 </header>
 <table border="2" align="center">
   <tr><th>Route</th><th>Time</th><th>Days</th></tr>
@@ -70,12 +62,9 @@ hover-link {
      <tr><td>Ahmedabad to Junagadh</td><td>11:00 AM</td><td>Mon–Sat</td></tr>
 <br><br><br></table>
 <form>
-<button type="submit" class="hover-link"><a href="Booking.php">Book your tickets now </a> </button>
+<button type="submit" class="hover-link"><a href="Booking.html">Book your tickets now </a> </button>
 
 </form >
-<?php 
-echo " ";
-?>
 <br><br><br>
 <footer>
 <p>Contact Us:- &nbsp;&nbsp;&nbsp;  Email: support@busbooking.com<br>
