@@ -1,0 +1,115 @@
+<html>
+<head>
+    <title>Login - Bus Ticket Booking</title>
+     <style>
+        body {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  padding: 10px;
+  background-color:rgb(142, 232, 232);
+}
+main{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  padding: 10px;
+  background-color:rgb(142, 232, 232);
+ color: black;
+   text-align: center;
+}
+header, footer {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  text-align: center;
+   display: flex;
+           justify-content:space-around;
+            align-items: center;
+}
+ hover-link { 
+    color: #007BFF; 
+    transition: color 0.3s, background-color 0.3s; 
+    padding: 10px 15px; 
+    border: 2px solid transparent; 
+} 
+ 
+.hover-link:hover { 
+    color: whitesmoke; 
+    background-color: red;
+    border: 2px solid black; 
+}
+#message {
+      font-weight: bold;
+      margin-top: 10px;
+    } 
+    </style>
+   <script>
+      function validateForm() {
+      var email = document.getElementById("email").value.trim();
+      var password = document.getElementById("password").value.trim();
+      var message = document.getElementById("message");
+
+      var emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+      if (!emailPattern.test(email)) {
+        message.style.color = "red";
+        message.innerHTML = "Please enter a valid email address.";
+        return false;
+      }
+
+      if (password === "") {
+        message.style.color = "red";
+        message.innerHTML = "Password cannot be empty.";
+        return false;
+      }
+
+      if (password.length < 6) {
+     message.style.color = "red";
+        message.innerHTML = "Password must be at least 6 characters long.";
+        return false;
+      }
+
+      message.style.color = "green";
+      message.innerHTML = "Login successful!";
+      return false; // Prevent actual form submission for now
+    }    
+    </script> 
+</head>
+<body>
+   <header>
+    <img src="Bus.jpg" width=""50" height="100">
+    <h1>Login to Bus Booking System</h1>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="Home.html"  style="color:aliceblue;">HOME</a>
+
+   </header>
+    <br><br><br><br><br>
+    <main>
+   <form id="LoginForm" onsubmit="return validateForm()">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" >
+      <br><br>
+
+<br>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" >
+      <br><br>
+   
+      <br>
+ <button class="btn forgot-btn">Forget Password?</button>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <button type="submit" class="hover-link">Login</button>
+      <br>
+      <p id="message"></p>
+    </form>
+  <p>Don't have account? <a href="SignUp.html">SignUp</a></p>
+    
+  </main>
+  <br><br><br><br><br><br><br>
+  <footer>
+    <p>Contact Us:- &nbsp;&nbsp;&nbsp;  Email: support@busbooking.com<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Phone: +91-1234567890<br>
+      &copy; 2025 Bus Booking System. All rights reserved.<br>
+      </p>
+  </footer>  
+</body>
+</html>
