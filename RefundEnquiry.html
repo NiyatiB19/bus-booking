@@ -1,0 +1,99 @@
+<html>
+<head>
+  <style>
+     body {
+  font-family: Arial;
+  padding: 10px;
+  background-color: rgb(142, 232, 232);
+        }
+          form {
+  background-color: rgb(142, 232, 232);
+  padding: 20px;
+  margin-top: 10px;
+   text-align: center;
+   color: black;
+}
+header, footer {
+  background-color:  #333;
+  color: white;
+  padding: 10px;
+  text-align: center;
+   display: flex;
+           justify-content:space-around;
+            align-items: center;
+} 
+hover-link { 
+    color: #007BFF; 
+    transition: color 0.3s, background-color 0.3s; 
+    padding: 10px 15px; 
+    border: 2px solid transparent; 
+} 
+ 
+.hover-link:hover { 
+    color: whitesmoke; 
+    background-color: red;
+    border: 2px solid black; 
+} 
+ #message {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+ </style>  
+ <script>
+  function validateRefundForm(){
+    var ticket = document.getElementById("ticket").value.trim();
+    var reason = document.getElementById("reason").value.trim();
+    var message = document.getElementById("message");
+
+    if (ticket === "") {
+        message.style.color = "red";
+        message.innerHTML = "Please enter your Ticket Number.";
+        return false;
+      }
+
+      if (!/^\d{10,}$/.test(ticket)) {
+        message.style.color = "red";
+        message.innerHTML = "Ticket Number must be at least 10 digits.";
+        return false;
+      }
+
+      if (reason === "") {
+        message.style.color = "red";
+        message.innerHTML = "Please enter the reason for refund enquiry.";
+        return false;
+      }
+      message.style.color = "green";
+      message.innerHTML = "Refund enquiry submitted successfully!";
+      return false; 
+  }
+ </script> 
+</head>
+<body>
+    <header>
+      <img src="Bus.jpg" width=""50" height="100">
+<h2>Refund Enquiry</h2>
+<a href="Home.html"  style="color:aliceblue;">HOME</a>
+</header>
+<form onsubmit="return validateRefundForm();">
+    <br><br><br>
+  <label>Ticket Number:</label>
+  <input type="text" id="ticket"><br>
+ <br> 
+  <label>Reason:</label>
+  <textarea id="reason" rows="4" cols="40"></textarea><br>
+  <br>
+  <button type="submit" class="hover-link">Submit Enquiry</button>
+  <br>
+  <p id="message"></p>
+  <br><br><br><br><br><br><br>
+</form>
+<footer>
+    <p>Contact Us:- &nbsp;&nbsp;&nbsp;  Email: support@busbooking.com<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Phone: +91-1234567890<br>
+      &copy; 2025 Bus Booking System. All rights reserved.<br>
+      </p>
+  </footer>
+</body>
+</html>
