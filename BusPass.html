@@ -1,0 +1,104 @@
+<html>
+<head>
+ <style>
+   body {
+    font-family: Arial;
+    padding: 10px;
+    background-color: rgb(142, 232, 232);
+  }
+
+  form {
+    background: rgb(142, 232, 232);
+    padding: 20px;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  header, footer {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .hover-link {
+    color: #007BFF;
+    transition: color 0.3s, background-color 0.3s;
+    padding: 10px 15px;
+    border: 2px solid transparent;
+    text-decoration: none;
+  }
+
+  .hover-link:hover {
+    color: whitesmoke;
+    background-color: red;
+    border: 2px solid black;
+  }
+ #message {
+    color: red;
+    font-weight: bold;
+    margin-top: 10px;
+}
+  </style>  
+<script>
+  function validateForm() {
+    var name = document.getElementById("name").value.trim();
+    var route = document.getElementById("route").value.trim();
+    var msg = document.getElementById("message");
+
+    if (name === "") {
+      msg.innerHTML = "Please enter your name.";
+      return false;
+    }
+
+    if (route === "") {
+      msg.innerHTML = "Please enter your route.";
+      return false;
+    }
+
+    msg.style.color = "red";
+    msg.innerHTML = "Application submitted successfully!";
+    return false; // Prevent actual submission for demo
+  }
+ </script>
+</head>
+
+<body>
+<header>
+  <img src="Bus.jpg" width="50" height="100">
+  <h2>Bus Pass Application</h2>
+  <a href="Home.html" style="color:aliceblue;">HOME</a>
+</header>
+
+<form onsubmit="return validateForm()"><br><br>
+  <label>Name:</label>
+  <input type="text" id="name"><br><br>
+
+  <label>Student/Regular:</label>
+  <select id="type">
+    <option>Student</option>
+    <option>Regular</option>
+  </select><br><br>
+
+  <label>Route:</label>
+  <input type="text" id="route"><br><br>
+
+  <button type="submit" class="hover-link">Apply for Pass</button>
+  <p id="message"></p>
+</form>
+
+<br><br><br><br><br><br>
+
+<footer>
+ <p>Contact Us:- &nbsp;&nbsp;&nbsp;  Email: support@busbooking.com<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Phone: +91-1234567890<br>
+    &copy; 2025 Bus Booking System. All rights reserved.<br>
+  </p>
+</footer>
+</body>
+</html>
